@@ -3,7 +3,7 @@ server_addr = "your_server_addr"
 server_port = "7000"
 token = "123456789"
 
-[https]
+[homeassistant]
 type = "tcp"
 local_port = "8123"
 remote_port = "8123"

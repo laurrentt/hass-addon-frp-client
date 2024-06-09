@@ -1,6 +1,6 @@
 name: "FRP Client"
 description: "You can use this tool to achieve remote access to local Home Assistant OS by port forwarding"
-version: "1.0.9"
+version: "1.0.10"
 slug: "frp_client"
 host_network: true
 startup: application
@@ -19,14 +19,14 @@ arch:
   - armv7
   - i386
 options:
-  serverAddr: "example.com"
+  serverAddr: "frps.tun.example.com"
   serverPort: 7000
   authToken: "123456789"
-  subdomain: ""
+  customDomain: "*.tun.example.com"
   remotePort: 443
 schema:
   serverAddr: str
   serverPort: int
   authToken: str
-  subdomain: str
+  customDomain: str
   remotePort: int

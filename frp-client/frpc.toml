@@ -7,10 +7,10 @@ token = "123456789"
 type = "http"
 local_port = "80"
 remote_port = "80"
-subdomain = "subdomain"
+custom_domains = "custom_domain"
 
 [httpshomeassistant]
 type = "https"
 local_port = "8123"
 remote_port = "443"
-subdomain = "subdomain"
+custom_domains = "custom_domain"

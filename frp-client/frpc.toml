@@ -3,9 +3,9 @@ server_addr = "your_server_addr"
 server_port = "7000"
 token = "123456789"
 
-[httphomeassistant]
+[letsencryptvalidationport]
 type = "http"
-local_port = "8123"
+local_port = "80"
 remote_port = "80"
 subdomain = "subdomain"
 

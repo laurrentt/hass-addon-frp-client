@@ -3,13 +3,13 @@ server_addr = "your_server_addr"
 server_port = "7000"
 token = "123456789"
 
-[letsencryptvalidationport]
+[letsencryptvalidation]
 type = "http"
 local_port = "80"
 remote_port = "80"
 custom_domains = "custom_domain"
 
-[httpshomeassistant]
+[homeassistant]
 type = "https"
 local_port = "8123"
 remote_port = "443"

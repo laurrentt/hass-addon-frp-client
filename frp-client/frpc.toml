@@ -4,6 +4,7 @@ server_port = "7000"
 token = "123456789"
 
 [homeassistant]
-type = "tcp"
+type = "http"
 local_port = "8123"
-remote_port = "8123"
+remote_port = "443"
+customDomains = ["custom_domain"]

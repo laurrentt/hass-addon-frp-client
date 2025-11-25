@@ -19,20 +19,23 @@ arch:
   - armv7
   - i386
 options:
-  serverAddr: "frps.tun.example.com"
-  serverPort: 7000
-  authToken: "123456789"
-  customDomain: "*.tun.example.com"
-  homeAssistantPort: 8123
-  extraPorts: []
-  configurationSuffix: ""
+  frpcConfig: |
+    [common]
+    server_addr = "your_server_addr"
+    server_port = 7000
+    token = "your_token"
+
+    [letsencryptvalidation]
+    type = "http"
+    local_port = "80"
+    remote_port = "80"
+    custom_domains = "your_domain.example.com"
+
+    [homeassistant]
+    type = "https"
+    local_port = 8123
+    remote_port = 443
+    custom_domains = "your_domain.example.com"
+    
 schema:
-  serverAddr: str
-  serverPort: int
-  authToken: str
-  customDomain: str
-  homeAssistantPort: int
-  extraPorts:
-    - port: int
-      type: list(http|https)
-  configurationSuffix: str
+  frpcConfig: str

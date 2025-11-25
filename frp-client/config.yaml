@@ -23,8 +23,10 @@ options:
   serverPort: 7000
   authToken: "123456789"
   customDomain: "*.tun.example.com"
+  configurationSuffix: ""
 schema:
   serverAddr: str
   serverPort: int
   authToken: str
   customDomain: str
+  configurationSuffix: str

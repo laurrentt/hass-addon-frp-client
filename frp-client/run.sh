@@ -15,6 +15,8 @@ sed -i "s/server_port = 7000/server_port = $(bashio::config 'serverPort')/" $CON
 sed -i "s/token = \"123456789\"/token = \"$(bashio::config 'authToken')\"/" $CONFIG_PATH
 sed -i "s/custom_domains = \"custom_domain\"/custom_domains = \"$(bashio::config 'customDomain')\"/" $CONFIG_PATH
 sed -i "s/remote_port = \"443\"/remote_port = \"$(bashio::config 'remotePort')\"/" $CONFIG_PATH
+sed -i "s/\[letsencryptvalidation\]/\[letsencryptvalidation$(bashio::config 'configurationSuffix')\]/" $CONFIG_PATH
+sed -i "s/\[homeassistant\]/\[homeassistant$(bashio::config 'configurationSuffix')\]/" $CONFIG_PATH
 
 bashio::log.info "Starting frp client"
 

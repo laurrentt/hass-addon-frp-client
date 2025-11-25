@@ -24,6 +24,7 @@ options:
   authToken: "123456789"
   customDomain: "*.tun.example.com"
   homeAssistantPort: 8123
+  extraPorts: []
   configurationSuffix: ""
 schema:
   serverAddr: str
@@ -31,4 +32,7 @@ schema:
   authToken: str
   customDomain: str
   homeAssistantPort: int
+  extraPorts:
+    - port: int
+      type: list(http|https)
   configurationSuffix: str

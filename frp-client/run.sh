@@ -19,6 +19,27 @@ sed -i "s/remote_port = \"443\"/remote_port = \"$(bashio::config 'remotePort')\"
 sed -i "s/\[letsencryptvalidation\]/\[letsencryptvalidation$(bashio::config 'configurationSuffix')\]/" $CONFIG_PATH
 sed -i "s/\[homeassistant\]/\[homeassistant$(bashio::config 'configurationSuffix')\]/" $CONFIG_PATH
 
+# Add extra ports if configured
+if bashio::config.has_value 'extraPorts'; then
+    bashio::log.info "Adding extra ports configuration"
+    for port in $(bashio::config 'extraPorts|keys'); do
+        PORT_NUM=$(bashio::config "extraPorts[${port}].port")
+        PORT_TYPE=$(bashio::config "extraPorts[${port}].type")
+        SUFFIX=$(bashio::config 'configurationSuffix')
+        
+        bashio::log.info "Adding port ${PORT_NUM} with type ${PORT_TYPE}"
+        
+        cat >> $CONFIG_PATH << EOF
+
+[homeassistant_extra_port_${PORT_NUM}${SUFFIX}]
+type = "${PORT_TYPE}"
+local_port = "${PORT_NUM}"
+remote_port = "${PORT_NUM}"
+custom_domains = "$(bashio::config 'customDomain')"
+EOF
+    done
+fi
+
 bashio::log.info "Starting frp client"
 
 cat $CONFIG_PATH

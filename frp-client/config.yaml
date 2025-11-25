@@ -1,6 +1,6 @@
 name: "FRP Client"
 description: "You can use this tool to achieve remote access to local Home Assistant OS by port forwarding"
-version: "1.4.0"
+version: "2.0.0"
 slug: "frp_client"
 host_network: true
 startup: application
@@ -36,6 +36,6 @@ options:
     local_port = 8123
     remote_port = 443
     custom_domains = "your_domain.example.com"
-    
+
 schema:
   frpcConfig: str

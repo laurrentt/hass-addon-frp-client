@@ -9,7 +9,7 @@ function stop_frpc() {
 }
 
 bashio::log.info "Writing configuration from user input."
-bashio::config 'frpcConfig' > $CONFIG_PATH
+echo "$(bashio::config 'frpcConfig')" > $CONFIG_PATH
 
 bashio::log.info "Starting frp client"
 
